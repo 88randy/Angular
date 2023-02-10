@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-4 text-end">
+      <img
+        src="https://i.ibb.co/HYc9Lz8/Bedu-hsbc.png"
+        alt="Bedu-hsbc"
+        class="img-fluid img-bedu-hsbc rounded-3 w-50"
+      />
+      <div class="text-end">
+        <p>
+          <small>Creado por: <b>Randy Allan</b></small>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-12 text-start">
+      <p><b>Sesión 01 - Postwork</b></p>
+    </div>
+    <h1>Calculadora</h1>
+    <form>
+      <div class="row g-3">
+        <div class="col form-floating mb-2">
+          <input type="number" class="form-control" [(ngModel)]="a" name="a" />
+          <label for="floatingInput">Primer número</label>
+        </div>
+        <div class="col form-floating mb-2">
+          <input type="number" class="form-control" [(ngModel)]="b" name="b" />
+          <label for="floatingInput">Segundo número</label>
+        </div>
+      </div>
+      <div class="buttons mt-4">
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="onAdd(a, b)"
+        >
+          Suma
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="onSubtract(a, b)"
+        >
+          Resta
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="onMultiply(a, b)"
+        >
+          Multiplica
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="onDivide(a, b)"
+        >
+          División
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="clearResults()"
+        >
+          Limpiar resultados
+        </button>
+      </div>
+    </form>
+    <div>
+      <h3 *ngIf="result">Resultado: {{ result.result }}</h3>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item active" aria-current="true">
+        Historial de resultados
+      </li>
+      <li class="list-group-item" *ngFor="let r of getResults()">
+        {{ r.operation }}
+      </li>
+    </ul>
+  </div>
+</div>
